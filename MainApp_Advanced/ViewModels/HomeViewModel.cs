@@ -15,6 +15,17 @@ public partial class HomeViewModel : ObservableObject
     [ObservableProperty]
     private ObservableCollection<Customer> _customers = [];
 
+    [ObservableProperty]
+    private Customer _customer = new Customer();
+
+    [ObservableProperty]
+    private Customer _newCustomer = new Customer();
+
+    [ObservableProperty]
+    private string _name = "";
+
+    [ObservableProperty]
+    private string _email = "";
 
 
     public HomeViewModel(IServiceProvider serviceProvider, CustomerService customerService)
@@ -33,6 +44,30 @@ public partial class HomeViewModel : ObservableObject
         }
     }
 
+    [RelayCommand]
+    public void AddCustomer()
+    {
+        _customerService.AddToList(NewCustomer);
+        NewCustomer = new Customer(); // bara för att tömma fälten
+        GetCustomers();
+    }
+
+
+
+    [RelayCommand]
+    public void DeleteCustomer(Customer customer)
+    {
+        if (customer != null)
+        {
+            Console.WriteLine("Deleting customer: " + customer.Name);
+            _customerService.DeleteFromList(customer);
+            Customer = new Customer(); // bara för att tömma fälten
+            GetCustomers();
+        } else
+        {
+            Console.WriteLine("Customer is null");
+        }
+    }
 
     [RelayCommand]
     public void GoToSettings()

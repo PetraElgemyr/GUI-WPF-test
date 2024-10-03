@@ -46,5 +46,19 @@ public class CustomerService
         return null!;
     }
 
+    public bool DeleteFromList(Customer customer)
+    {
+        try
+        {
+            _customers.Remove(customer);
+            _fileService.SaveToFile(JsonConvert.SerializeObject(_customers));
+            return true;
+        }
+        catch 
+        {
+        }
+        return false;
+    }
+
 }
 
