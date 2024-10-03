@@ -31,9 +31,12 @@ public class FileService
     {
         try
         {
-            using var sr = new StreamReader(_filePath);
-            var content = sr.ReadToEnd();
-            return content;
+            if (File.Exists(_filePath))
+            {
+                using var sr = new StreamReader(_filePath);
+                var content = sr.ReadToEnd();
+                return content;
+            }
         }
         catch
         {
