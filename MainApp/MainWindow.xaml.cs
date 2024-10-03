@@ -36,8 +36,15 @@ public partial class MainWindow : Window
 
     private void UpdateListView()
     {
+        _customers.Clear();
+        foreach (var item in _customerService.GetCustomers())
+        {
+            _customers.Add(item);
+        }
+
+        // Det nedan funkar ej
         // _customers = _customerService.GetCustomers() as ObservableCollection<Customer>;
-        _customers = (ObservableCollection<Customer>) _customerService.GetCustomers();  
+        //_customers = (ObservableCollection<Customer>) _customerService.GetCustomers();  
         LvCustomers.ItemsSource = _customers;
 
     }
