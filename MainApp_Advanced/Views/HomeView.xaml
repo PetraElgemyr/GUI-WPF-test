@@ -26,10 +26,10 @@
 
         <StackPanel Grid.Row="1" Margin="10, 15"  Background="LightGray" >
             <TextBlock Text="Name"  Margin="10, 15, 10, 5"/>
-            <TextBox Text="{Binding NewCustomer.Name, Mode=TwoWay}" Margin="10, 0" Padding="5"/>
+            <TextBox Text="{Binding NewCustomer.Name}" Margin="10, 0" Padding="5"/>
 
             <TextBlock Text="Email" Margin="10, 15, 10, 5"/>
-            <TextBox Text="{Binding NewCustomer.Email, Mode=TwoWay}" Margin="10, 0" Padding="5"/>
+            <TextBox Text="{Binding NewCustomer.Email}" Margin="10, 0" Padding="5"/>
 
             <Button Command="{Binding AddCustomerCommand}" Content="Save customer" Padding="8" Margin="40, 20" />
         </StackPanel>
