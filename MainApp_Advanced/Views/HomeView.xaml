@@ -49,11 +49,10 @@
                                 <TextBlock Text="{Binding Email}" />
                             </StackPanel>
 
-                      
+                            <!--knapp start-->
                             <Button Grid.Column="1"
                                     Command="{Binding DataContext.DeleteCustomerCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
                                     CommandParameter="{Binding}"
-                                    
                                     >
                                 <Button.Style>
                                     <Style TargetType="Button">
@@ -80,7 +79,7 @@
 
                                 <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74D;" />
                             </Button>
-
+                            <!--knapp slut-->
 
 
                         </Grid>
