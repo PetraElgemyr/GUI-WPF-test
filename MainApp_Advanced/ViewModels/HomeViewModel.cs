@@ -18,15 +18,6 @@ public partial class HomeViewModel : ObservableObject
     [ObservableProperty]
     private Customer _customer = new Customer();
 
-    [ObservableProperty]
-    private Customer _newCustomer = new Customer();
-
-    [ObservableProperty]
-    private string _name = "";
-
-    [ObservableProperty]
-    private string _email = "";
-
 
     public HomeViewModel(IServiceProvider serviceProvider, CustomerService customerService)
     {
@@ -47,8 +38,8 @@ public partial class HomeViewModel : ObservableObject
     [RelayCommand]
     public void AddCustomer()
     {
-        _customerService.AddToList(NewCustomer);
-        NewCustomer = new Customer(); // bara för att tömma fälten
+        _customerService.AddToList(Customer);
+        Customer = new Customer(); // bara för att tömma fälten
         GetCustomers();
     }
 
